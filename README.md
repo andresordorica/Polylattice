@@ -10,7 +10,9 @@ You can create the conda environment from the provided `.yml` file and then acti
 ```bash
 conda env create -f conda_environment/original_env.yml -n Polylattice-MoSDeF
 conda activate Polylattice-MoSDeF
+```
 
 
-
-Once the environment is ready, begin by exploring the Creating_polymer.ipynb notebook to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the subsequent creation of polymer compounds.
+Once the environment is ready, begin by exploring the Creating_polymer.ipynb notebook
+to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the
+subsequent creation of crosslinked polymer compounds.
