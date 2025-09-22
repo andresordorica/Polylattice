@@ -131,33 +131,39 @@ def compound_info_CR(parmed_structure):
         
     return atom_info_dict
         
-def Add_port_CR(compound, type = "OH", name = "side",  factor = 1):
+def Add_port_CR(compound, type = "OH", name = "side",  factor = 1, manual_ports = False, ports_dict = {} ):
 
-    type_anchor = { "OH": [["O", "H"], ["H"], [2], ],
-                   "OHt": [["O", "H"], ["H"], [1], ],
-                   "NH3": [["N", "H", "H"], ["H"],  [3],], ### Terminal one
-                   "NH3t" : [["N", "H"], ["H"],  [2],], ### Terminal one
-                   "NH2": [["N", "H", "H"], ["H"],  [3],],
-                   "NH": [["N", "C", "H"], ["H"],  [3],],
-                   "SH": [["S","H"], ["H"],  [2],],
-                   "CH3": [["C", "H", "H", "H"], ["H"], [4]],
-                   "CH2": [["C", "C", "H", "H"], ["H"], [3]],
-                   "COH": [["C", "C", "O", "H", "H"], ["H"], [4]],
-                   "Aryl-alkyl": [["C", "C", "C" ,"H"], ["H"],  [3]],
-                   "C=O": [["C", "O", "C" ], ["H"],  [3]],
-                   "S=O" :  [["S", "O" ], ["O"],  [3]],
-                   "NHc" :  [["N", "H", "H", "C" ], ["H"],  [3]],
-                   "CRL_Phenyl" :  [["N", "H", "H", "C" ], ["H"],  [3]],
-                   "CRL_Site" :  [["C", "C", "B", "H" ], ["H"],  [3]],
-                   "NH2_C": [["N", "H", "H", "C"], ["H"],  [3],],
-                   "CO_g": [["C", "O",], ["O"],  [2],],
-                   
-                   "DGPA_HO": [["B", "H", "C",], ["H"],  [2],],
-                   
-                   "DGPA_HC": [["C", "H", "C", "O",], ["H"], [3],], 
+    if manual_ports:
+        type_anchor = ports_dict
+    
+    else:
+
+        type_anchor = { "OH": [["O", "H"], ["H"], [2], ],
+                    "OHt": [["O", "H"], ["H"], [1], ],
+                    "NH3": [["N", "H", "H"], ["H"],  [3],], ### Terminal one
+                    "NH3t" : [["N", "H"], ["H"],  [2],], ### Terminal one
+                    "NH2": [["N", "H", "H"], ["H"],  [3],],
+                    "NH": [["N", "C", "H"], ["H"],  [3],],
+                    "SH": [["S","H"], ["H"],  [2],],
+                    "CH3": [["C", "H", "H", "H"], ["H"], [4]],
+                    "CH2": [["C", "C", "H", "H"], ["H"], [3]],
+                    "COH": [["C", "C", "O", "H", "H"], ["H"], [4]],
+                    "Aryl-alkyl": [["C", "C", "C" ,"H"], ["H"],  [3]],
+                    "C=O": [["C", "O", "C" ], ["H"],  [3]],
+                    "S=O" :  [["S", "O" ], ["O"],  [3]],
+                    "NHc" :  [["N", "H", "H", "C" ], ["H"],  [3]],
+                    "CRL_Phenyl" :  [["N", "H", "H", "C" ], ["H"],  [3]],
+                    "CRL_Site" :  [["C", "C", "B", "H" ], ["H"],  [3]],
+                    "NH2_C": [["N", "H", "H", "C"], ["H"],  [3],],
+                    "CO_g": [["C", "O",], ["O"],  [2],],
+                    
+                    "DGPA_HO": [["B", "H", "C",], ["H"],  [2],],
+                    
+                    "DGPA_HC": [["C", "H", "C", "O",], ["H"], [3],], 
 
 
-                    }
+                        }
+        
     anchor = ((type_anchor[type])[0])[0]
     matchers = ((type_anchor[type])[0])[1:]
     target = ((type_anchor[type])[1])[0]
