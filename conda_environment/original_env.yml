@@ -1,4 +1,5 @@
-name: Amro_CRS
+name: PolyLattice
+
 channels:
   - bioconda
   - conda-forge
