@@ -19,15 +19,17 @@ subsequent creation of crosslinked polymer compounds.
 
 This repository contains examples for:
 
-a) PVA.ipynb:
-    PVA crosslinked with Glutaraldehyde and Dimethylolurea
+a) Building polymer compounds from custom repeat units
 
-b) BADGE_MHHPA.ipynb:
+b) PVA.ipynb:
+    PVA crosslinked with Glutaraldehyde, Dimethylolurea and Malic Acid
 
-c) EPON-862_DETDA.ipynb:
+c) BADGE_MHHPA.ipynb:
+
+d) EPON-862_DETDA.ipynb:
     Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
 
-c) EPON-862_DETDA.ipynb:
+e) EPON-862_DETDA.ipynb:
     Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
 
 The examples shown in this repository are ilustrative as the functionality of the code can be adapted to many other chemistries using the
