@@ -75,6 +75,53 @@ def is_match(list_names, bonded_neighbors_copy):
 ################################### Support functions #######################################################################################################################################
 ###################################                    ######################################################################################################################################
 
+
+def Replace_Atom_with_dummy(Compound = mb.Compound(),
+                            replacement_atom = "S",
+                            anchor_name = "C",
+                            list_atoms_bonded_anchor = ["H", "H", "H", "C"],
+                            neighbor_anchor_name = "C",
+                            list_atoms_bonded_neighbor_anchor = ["O", "O", "C", "H"],
+                            ):
+
+    from collections import Counter
+
+    def compare_lists(A, B):
+        return Counter(A) == Counter(B)
+
+
+
+
+    remove_list = []
+    for particle in Compound.particles():
+        if particle.name == anchor_name:
+            direct_bonds = []
+            direct_bonds_id = []
+            for p in particle.direct_bonds():
+                direct_bonds.append(p.name)
+                direct_bonds_id.append(p)
+
+            if compare_lists(list_atoms_bonded_anchor, direct_bonds):
+                for p in particle.direct_bonds():
+                    if p.name ==neighbor_anchor_name:
+                        direct_bonds_neighbor = []
+                        for p_N in p.direct_bonds():
+                            direct_bonds_neighbor.append(p_N.name)
+
+                        if compare_lists(list_atoms_bonded_neighbor_anchor, direct_bonds_neighbor):
+                            remove_list.append(particle)
+                            print("Found one")
+
+    for particle in  Compound.particles():
+        for p_matched in remove_list:
+            if particle == p_matched:
+                particle.name = replacement_atom
+
+
+
+    return Compound
+
+
 def fetch_and_plug_CR(name_of_compound):
     '''
     This compound takes a string
@@ -717,7 +764,6 @@ def Polymer_Child_Remove_atoms(Polymer_compound = mb.Compound(),
                                     list_alpha.append((c,point2,point1))
                                     previous_port[c]= particle.pos
                                     ll_1.append(name_)
-                                    #print("Removed particle")
                                     c+=1
                                     
                                     
@@ -740,8 +786,6 @@ def Polymer_Child_Remove_atoms(Polymer_compound = mb.Compound(),
                         list_names = []
                         list_positions = []
                         list_id = []
-                        #boolean_removal = check_position_in_dict(particle.pos, dictionary_port_index)
-                        #if boolean_removal == True:      
                         for p in particle.direct_bonds():
                             list_names.append(p.name)
                             list_positions.append(p.pos)
@@ -749,7 +793,7 @@ def Polymer_Child_Remove_atoms(Polymer_compound = mb.Compound(),
                             #print(f"target atom {target_atom}")
                         if (len(list_names) == anchor_atom_n_bonds) and (target_atom in list_names)   : # Modified line
                             #print(list_names)
-                            #print(f"Found target {target_atom} atom")
+                            print(f"Found target {target_atom} atom")
                             position_H = list_positions[list_names.index(target_atom)]
                             # Define the positions of the two points
                             point1 = position_H
@@ -767,14 +811,11 @@ def Polymer_Child_Remove_atoms(Polymer_compound = mb.Compound(),
                             for key, val in ports_dict.items():
                                 array2 = ports_dict[key]
                                 if np.allclose(particle.pos[:2], array2[:2], atol=1e-2):
-                                    #print("Matched")
-                                    #print( ports_dict[key])
+                                    print("Matched")
+                                    print( ports_dict[key])
                                     name_ = port_name +"_"+ str(key)
                                     Polymer_compound.add(mb.Port(anchor=particle, orientation=unit_vector, separation=distance * bond_length_factor), name_)
                                     Polymer_compound.remove(list_id[list_names.index(target_atom)])
-                                    #list_alpha.append((c,point2,point1))
-                                    #previous_port[key]= particle.pos
-                                    #print("Removed particle")
                                     ll_1.append(name_)
                                     list_keys.append(key)
                                     
@@ -824,10 +865,8 @@ def Polymer_Child_Remove_atoms(Polymer_compound = mb.Compound(),
                                     name_ = port_name +"_"+ str(c)
                                     Polymer_compound.add(mb.Port(anchor=particle, orientation=unit_vector, separation=distance * bond_length_factor), name_)
                                     Polymer_compound.remove(list_id[list_names.index(target_atom)])
-                                    #list_alpha.append((c,point2,point1))
                                     previous_port[c]= particle.pos
                                     ll_1.append(name_)
-                                    #print("Removed particle")
                                     c+=1
                                                             
                
@@ -1852,6 +1891,10 @@ def Crosslink_Pipeline(
     Heterogeneous_crosslinking = False,
     
     dimension_0_1_2 = 0,
+
+    Pre_existing_repeat_unit = False,
+    Repeat_unit_compound_with_ports = mb.Compound(),
+
     
     
 ):
@@ -1998,14 +2041,21 @@ def Crosslink_Pipeline(
     #####################################################################################
     #############################################
     ###################################
-    main_polymer_bead, end_bead = Builder_pipeline_Polymer(main_name,
-                                                           first_port = first_port_monomer,
-                                                           second_port = second_port_monomer,
-                                                           add_ports = True,
-                                                           rigid_port = False,
-                                                           fetch_compound = fetch_compound_from_database,
-                                                           MB_compound = MB_molecule_to_create_monomer,
-                                                           factor_length = 1.2)
+
+    if Pre_existing_repeat_unit:
+        print("Repeat unit passed to function")
+        main_polymer_bead = Repeat_unit_compound_with_ports
+    else:
+        print("Building repeat unit")
+
+        main_polymer_bead, end_bead = Builder_pipeline_Polymer(main_name,
+                                                            first_port = first_port_monomer,
+                                                            second_port = second_port_monomer,
+                                                            add_ports = True,
+                                                            rigid_port = False,
+                                                            fetch_compound = fetch_compound_from_database,
+                                                            MB_compound = MB_molecule_to_create_monomer,
+                                                            factor_length = 1.2)
     
     polymer_compound_ = mb.recipes.Polymer(monomers=[main_polymer_bead])
     polymer_compound_.build( n=repeat_units,)
@@ -2246,8 +2296,7 @@ def Crosslink_Pipeline(
                                                                                           
                                                                                             
                                                                                 )
-                    print("attached ports"
-                    )
+                    print("attached ports")
                     print(attached_ports)
                 else:
                     print("error polymer")
@@ -2358,6 +2407,8 @@ def Crosslink_Pipeline(
     #print(tuple_bond_order_ports)
     ################################### Print Statement ###################################################################
     print(Compound_0)
+
+
     #print(tuple_bond_order_ports)
     #print(len(tuple_bond_order_ports))
     #print(tuple_bond_order_sites)
@@ -2372,12 +2423,13 @@ def Crosslink_Pipeline(
             raise ValueError(f"Mismatch at index {i}: Sites tuple length ({len(Sites_tuple)}) does not match Ports tuple length ({len(Ports_tuple)})")
         
         for c in range(len(Ports_tuple)):        
-            #print(f'    {Crosslinker_residue_name}-{i} \n {Sites_tuple[c]} \n {Ports_tuple[c]}')
+            print(f'{Crosslinker_residue_name}-{i} \n {Sites_tuple[c]} \n {Ports_tuple[c]}')
             
             mb.force_overlap(move_this= Compound_0[f'{Crosslinker_residue_name}-{i}'],
                     from_positions= Compound_0[f'{Sites_tuple[c]}'],
                     to_positions= Compound_0[f'{Ports_tuple[c]}'])
             
+    print(tuple_bond_order_ports)
     #################################################### Translate compound to positive x, y, z values #####################################################
     translation_vector = 1 - np.min(Compound_0.xyz, axis=0)
     new_pos =  Compound_0.xyz + translation_vector
@@ -2444,12 +2496,12 @@ def Crosslink_Pipeline(
                 if atom.name == key:
                     atom.name = value
                    
-                    #print(f"Found dummy atom {key} : replaced it with {value} \n of mass {atom.mass}")
+                    print(f"Found dummy atom {key} : replaced it with {value} \n of mass {atom.mass}")
                    
                     
         print("Finished removing dummy atoms")
     ###########
                 
     return Compound_0, Number_Crosslinkers_Used, Real_Degree_Crosslinking, Polymer_residue_name, Crosslinker_residue_name,
-                
+
     

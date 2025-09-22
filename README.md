@@ -16,3 +16,19 @@ conda activate Polylattice-MoSDeF
 Once the environment is ready, begin by exploring the Creating_polymer.ipynb notebook
 to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the
 subsequent creation of crosslinked polymer compounds.
+
+This repository contains examples for:
+
+a) PVA.ipynb:
+    PVA crosslinked with Glutaraldehyde and Dimethylolurea
+
+b) BADGE_MHHPA.ipynb:
+
+c) EPON-862_DETDA.ipynb:
+    Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
+
+c) EPON-862_DETDA.ipynb:
+    Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
+
+The examples shown in this repository are ilustrative as the functionality of the code can be adapted to many other chemistries using the
+methodology and outlined strategies shown in the current repository
