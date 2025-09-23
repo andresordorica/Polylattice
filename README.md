@@ -1,6 +1,6 @@
 ![PolyLattice Banner](https://github.com/andresordorica/Polylattice/blob/main/images/polylattice_banner.png?raw=true)
 # PolyLattice
-A Python-based toolkit that leverages the functionality of mBuild, part of the MoSDeF simulation suite, to create reproducible crosslinked polymer structures. The toolkit enables high control over the final structure, facilitating visualization and generation of molecular dynamics (MD) simulation inputs with a strong emphasis on reproducibility.
+A Python-based toolkit that leverages the functionality of mBuild, part of the MoSDeF simulation suite, to create reproducible crosslinked polymer structures. The toolkit enables high control over the final structure, facilitating visualization and generation of molecular dynamics (MD) simulation inputs that are Transparent, Reproducible, Usable by Others, and Extensible (TRUE; DOI: https://doi.org/10.1080/00268976.2020.1742938).
 
 ## Getting Started
 
@@ -17,14 +17,15 @@ Once the environment is ready, begin by exploring the Creating_polymer.ipynb not
 to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the
 subsequent creation of crosslinked polymer compounds.
 
-This repository contains examples for:
+This repository contains Examples for:
 
 a) Building polymer compounds from custom repeat units
 
 b) PVA.ipynb:
     PVA crosslinked with Glutaraldehyde, Dimethylolurea and Malic Acid
 
-c) BADGE_MHHPA.ipynb:
+c) BADGE_MHHPA.ipynb: Crosslinkinging of Bisphenol-A-diglycidyl-ether (BADGE:https://pubchem.ncbi.nlm.nih.gov/compound/Bisphenol-A-diglycidyl-ether)
+    and crosslinker Methylhexahydrophtalic-anyhidride (MHHPA: https://pubchem.ncbi.nlm.nih.gov/compound/Methylhexahydrophthalic-anhydride )
 
 d) EPON-862_DETDA.ipynb:
     Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
