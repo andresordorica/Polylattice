@@ -1,0 +1,19 @@
+name: polylattice-binder
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - jupyterlab>=3.6
+  - notebook
+  - ipywidgets
+  - numpy
+  - mbuild
+  - foyer
+  - parmed
+  - rdkit
+  - requests
+  - pip
+  - pip:
+      - py3Dmol
+      - jupyterlab_3dmol
+      - pubchempy

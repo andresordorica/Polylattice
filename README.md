@@ -46,5 +46,11 @@ e) TETA-TMC*.ipynb:
 d) PVA_Crosslinked_Uncrosslinked.ipynb:
     Creating a simulation box with a mixture of crosslinked and uncrosllinked PVA
 
+
+To launch in Binder to visualize the output of the notebooks:
+[![Launch in Binder](https://mybinder.org/badge_logo.svg)](
+https://mybinder.org/v2/gh/andresordorica/Polylattice/HEAD?labpath=)
+
+
 The examples shown in this repository are ilustrative as the functionality of the code can be adapted to many other chemistries using the
-methodology and outlined strategies shown in the current repository
+methodology and outlined strategies shown in the current repository.
