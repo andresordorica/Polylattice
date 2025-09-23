@@ -13,7 +13,7 @@ conda activate Polylattice-MoSDeF
 ```
 
 
-Once the environment is ready, begin by exploring the Creating_polymer.ipynb notebook
+Once the environment is ready, begin by exploring the Polymer_Chain_Creation.ipynb notebook
 to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the
 subsequent creation of crosslinked polymer compounds.
 
