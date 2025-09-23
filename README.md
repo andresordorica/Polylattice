@@ -19,7 +19,7 @@ subsequent creation of crosslinked polymer compounds.
 
 This repository contains Examples for:
 
-a) Building polymer compounds from custom repeat units
+a) Polymer_Chain_Creation.ipynb: Building polymer compounds from custom repeat units
 
 b) PVA.ipynb:
     PVA crosslinked with Glutaraldehyde, Dimethylolurea and Malic Acid
