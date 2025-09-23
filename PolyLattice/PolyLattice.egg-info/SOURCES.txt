@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+PolyLattice/Main_functions/__init__.py
+PolyLattice/Main_functions/crosslink_function.py
+PolyLattice/PolyLattice.egg-info/PKG-INFO
+PolyLattice/PolyLattice.egg-info/SOURCES.txt
+PolyLattice/PolyLattice.egg-info/dependency_links.txt
+PolyLattice/PolyLattice.egg-info/top_level.txt

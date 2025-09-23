@@ -12,8 +12,15 @@ conda env create -f conda_environment/original_env.yml -n Polylattice-MoSDeF
 conda activate Polylattice-MoSDeF
 ```
 
+After creating the environment, go into the directory to install the dependencies:
 
-Once the environment is ready, begin by exploring the Polymer_Chain_Creation.ipynb notebook
+```bash
+cd /Polylattice
+python -m pip install -e
+```
+
+
+Once the environment and dependencies are ready, begin by exploring the Polymer_Chain_Creation.ipynb notebook
 to get familiarized with the MoSDeF–mBuild concepts behind the Polymer class and the
 subsequent creation of crosslinked polymer compounds.
 

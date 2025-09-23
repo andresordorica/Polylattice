@@ -2505,3 +2505,6 @@ def Crosslink_Pipeline(
     return Compound_0, Number_Crosslinkers_Used, Real_Degree_Crosslinking, Polymer_residue_name, Crosslinker_residue_name,
 
     
+if __name__ == "__main__":
+    # test code or demo usage
+    print("Crosslink function module works!")

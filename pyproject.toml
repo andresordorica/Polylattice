@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PolyLattice"
+version = "0.0.1"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["PolyLattice"]      # search inside the inner package dir
