@@ -39,6 +39,7 @@ d) EPON-862_DETDA.ipynb:
 
 e) TETA-TMC*.ipynb:
     Crosslinking of a polyamide triethylentetramine (TETA) with trimesoyl chloride (TMC) (https://pubs.acs.org/doi/10.1021/acsomega.3c10108)
+
     I)  TETA-TMC_via_API.ipynb: Using PubChem's API for loading the initial monomers
     II) TETA-TMC_via_MOL2.ipynb: Using mol2 files 
 
