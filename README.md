@@ -37,8 +37,10 @@ c) BADGE_MHHPA.ipynb: Crosslinkinging of Bisphenol-A-diglycidyl-ether (BADGE:htt
 d) EPON-862_DETDA.ipynb:
     Crosslinking of a polyamide EPON 862 with the curing Agent DETDA (https://pubs.acs.org/doi/full/10.1021/ma2005519)
 
-e) TETA-TMC.ipynb:
+e) TETA-TMC*.ipynb:
     Crosslinking of a polyamide triethylentetramine (TETA) with trimesoyl chloride (TMC) (https://pubs.acs.org/doi/10.1021/acsomega.3c10108)
+    I)  TETA-TMC_via_API.ipynb: Using PubChem's API for loading the initial monomers
+    II) TETA-TMC_via_MOL2.ipynb: Using mol2 files 
 
 The examples shown in this repository are ilustrative as the functionality of the code can be adapted to many other chemistries using the
 methodology and outlined strategies shown in the current repository
