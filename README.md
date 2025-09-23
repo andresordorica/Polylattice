@@ -43,5 +43,8 @@ e) TETA-TMC*.ipynb:
     I)  TETA-TMC_via_API.ipynb: Using PubChem's API for loading the initial monomers
     II) TETA-TMC_via_MOL2.ipynb: Using mol2 files 
 
+d) PVA_Crosslinked_Uncrosslinked.ipynb:
+    Creating a simulation box with a mixture of crosslinked and uncrosllinked PVA
+
 The examples shown in this repository are ilustrative as the functionality of the code can be adapted to many other chemistries using the
 methodology and outlined strategies shown in the current repository
