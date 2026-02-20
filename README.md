@@ -29,7 +29,7 @@ This repository contains Examples for:
 a) Polymer_Chain_Creation.ipynb: Building polymer compounds from custom repeat units
 
 b) PVA.ipynb:
-    PVA crosslinked with Glutaraldehyde, Dimethylolurea and Malic Acid
+    PVA crosslinked with Glutaraldehyde, Dimethylolurea and Maleic Acid
 
 c) BADGE_MHHPA.ipynb: Crosslinkinging of Bisphenol-A-diglycidyl-ether (BADGE:https://pubchem.ncbi.nlm.nih.gov/compound/Bisphenol-A-diglycidyl-ether)
     and crosslinker Methylhexahydrophtalic-anyhidride (MHHPA: https://pubchem.ncbi.nlm.nih.gov/compound/Methylhexahydrophthalic-anhydride )

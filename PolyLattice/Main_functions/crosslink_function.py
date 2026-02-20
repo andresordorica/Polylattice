@@ -51,17 +51,10 @@ def print_all_pubchem_properties(cid_or_name):
 
 
 def extract_absolute_smiles(record):
-        if "record" not in record:
-            return None
-
-        for entry in record["record"].get("props", []):
-            urn = entry.get("urn", {})
-            if urn.get("label") == "SMILES":
-                value = entry.get("value", {})
-                smiles = value.get("sval")
-                if smiles:
-                    return smiles
+    if not record:
         return None
+    lower = {k.lower(): v for k, v in record.items()}
+    return lower.get("smiles") or lower.get("connectivity_smiles")
     
 
 def is_match(list_names, bonded_neighbors_copy):
